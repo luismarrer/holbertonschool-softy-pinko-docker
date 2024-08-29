@@ -1,0 +1,18 @@
+services:
+  frontend:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    image: my-web-app:latest
+    ports:
+      - "9000:9000"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./back-end
+      dockerfile: Dockerfile
+    image: ore-no-backend:latest
+    ports:
+      - "5252:5252"
